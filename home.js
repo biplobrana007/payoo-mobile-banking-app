@@ -38,11 +38,6 @@ document.getElementById("add-money-btn").addEventListener("click", (event) => {
   }
 });
 
-document.getElementById("add-money").addEventListener("click", () => {
-  document.getElementById("add-money-div").style.display = "block";
-  document.getElementById("cash-out-div").style.display = "none";
-});
-
 /*cash out*/
 
 document
@@ -77,7 +72,29 @@ document
     }
   });
 
-document.getElementById("cash-out").addEventListener("click", () => {
-  document.getElementById("cash-out-div").style.display = "block";
-  document.getElementById("add-money-div").style.display = "none";
-});
+
+
+/* toggole*/
+
+function btnToClick(idForClick, idForForm) {
+  document.getElementById(idForClick).addEventListener("click", () => {
+    const allFeature = document.querySelectorAll(".form");
+    for (const feature of allFeature) {
+      feature.style.display = "none";
+    }
+    document.getElementById(idForForm).style.display = "block";
+  });
+}
+
+btnToClick("add-money", "add-money-div");
+btnToClick("cash-out", "cash-out-div");
+btnToClick("transfer-money", "transfer-money-div");
+btnToClick("get-bonus", "get-bonus-div");
+btnToClick("pay-bill", "pay-bill-div");
+
+
+function getValue(id){
+  document.getElementById(id).value
+}
+
+console.log(getValue("bank"))
