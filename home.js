@@ -29,3 +29,8 @@ document.getElementById("add-money-btn").addEventListener("click", (event) => {
     return alert("enter valid pin");
   }
 });
+
+document.getElementById("log-out-btn").addEventListener("click", (event) => {
+    event.preventDefault();
+    window.location.href = "./index.html"
+});
