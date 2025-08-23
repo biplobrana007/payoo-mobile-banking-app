@@ -23,8 +23,155 @@
     <!-- main css -->
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
-    <h2>This is home page</h2>
-    <script src="./script.js"></script>
+  <body class="bg-[#f4f5f7] h-[100vh] outfit-font">
+    <div class="max-w-lg mx-auto p-6 rounded-b-3xl bg-white">
+      <nav
+        class="flex justify-between items-center py-5 border-b border-gray-200"
+      >
+        <div class="flex gap-2">
+          <img src="./Resources/assets/Group.png" alt="" class="w-[50px]" />
+          <div class="">
+            <h3 class="font-extrabold text-lg text-[#080808] mb-1">
+              $<span id="your-amount">45000</span>
+            </h3>
+            <p class="font-normal text-sm text-[hsla(0,0%,3%,.5)]">
+              Available Balance
+            </p>
+          </div>
+        </div>
+        <button
+          class="btn font-normal text-sm text-[hsla(0,0%,3%,.5)] rounded-[11px] bg-transparent"
+        >
+          <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>Log Out
+        </button>
+      </nav>
+      <div class="py-6">
+        <h2 class="text-2xl font-bold leading-7 mb-5 text-[#080808]">
+          🔥 Welcome to Payooo!
+        </h2>
+        <p
+          class="ont-normal text-lg text-[hsla(0,0%,3%,.5)] leading-[26px]"
+        >
+          Enjoy easy and convenient financial services with us.
+        </p>
+        <p
+          class="ont-normal text-lg text-[hsla(0,0%,3%,.5)] leading-[26px]"
+        >
+          Cashout charge is low.
+        </p>
+      </div>
+      <div class="grid grid-cols-3 gap-4">
+        <div
+          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+        >
+          <img src="./Resources/assets/wallet1.png" alt="" />
+          <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">Add Money</h3>
+        </div>
+        <div
+          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+        >
+          <img src="./Resources/assets/send1.png" alt="" />
+          <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">Cashout</h3>
+        </div>
+        <div
+          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+        >
+          <img src="./Resources/assets/money1.png" alt="" />
+          <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">
+            Transfer Money
+          </h3>
+        </div>
+        <div
+          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+        >
+          <img src="./Resources/assets/bonus1.png" alt="" />
+          <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">Get Bonus</h3>
+        </div>
+        <div
+          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+        >
+          <img src="./Resources/assets/purse1.png" alt="" />
+          <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">Pay Bill</h3>
+        </div>
+        <div
+          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+        >
+          <img src="./Resources/assets/transaction1.png" alt="" />
+          <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">
+            Transactions
+          </h3>
+        </div>
+      </div>
+    </div>
+    <!-- add money -->
+    <div class="px-6 max-w-lg mx-auto pt-10">
+      <h2 class="text-lg font-semibold text-[hsla(0,0%,3%,.9)] mb-2">
+        Add Money
+      </h2>
+      <form action="" class="flex flex-col gap-4 bg-white p-5 rounded-3xl">
+        <div class="flex flex-col gap-1">
+          <label
+            for="bank"
+            class="font-medium text-[1rem] text-[hsla(0,0%,3%,.7)]"
+            >Select A Bank</label
+          >
+          <select
+            id="bank"
+            class="select rounded-3xl text-[16px] font-light text-[hsla(0,0%,3%,.7)] bg-[#f4f5f7] w-full"
+          >
+            <option disabled selected class="">Select bank</option>
+            <option>IFIC</option>
+            <option>UCC</option>
+            <option>Bank-Asia</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label
+            for="bank-acc"
+            class="font-medium text-[1rem] text-[hsla(0,0%,3%,.7)]"
+            >Bank Account Number</label
+          >
+          <input
+            id="bank-acc"
+            type="text"
+            placeholder="Enter 11 digit account number"
+            class="input rounded-3xl text-[16px] font-light text-[#080808] bg-[#f4f5f7] w-full"
+          />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label
+            for="add-amount"
+            class="font-medium text-[1rem] text-[hsla(0,0%,3%,.7)]"
+            >Amount to Add</label
+          >
+          <input
+            id="add-amount"
+            type="text"
+            placeholder="Add Amount to withdraw"
+            class="input rounded-3xl text-[16px] font-light text-[#080808] bg-[#f4f5f7] w-full"
+          />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label
+            for="pin-number"
+            class="font-medium text-[1rem] text-[hsla(0,0%,3%,.7)]"
+            >Pin Number</label
+          >
+          <input
+            id="pin-number"
+            type="text"
+            placeholder="Enter 4 digit pin number"
+            class="input rounded-3xl text-[16px] font-light text-[#080808] bg-[#f4f5f7] w-full"
+          />
+        </div>
+        <button
+          id="add-money-btn"
+          class="btn rounded-3xl text-xl font-semibold text-white w-full bg-[#0874F2] py-[22px] flex items-center"
+        >
+          Add Money
+        </button>
+      </form>
+    </div>
+    <script src="./home.js"></script>
   </body>
 </html>

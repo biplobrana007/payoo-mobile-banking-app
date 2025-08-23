@@ -9,6 +9,6 @@ document.getElementById("login-btn").addEventListener("click", (event) => {
   if (userPhoneNumber === phoneNumber && userPinNumber === pinNumber) {
     window.location.href = "./home.html";
   } else {
-    console.log("invalid");
+    console.log("not matched");
   }
 });
