@@ -4,19 +4,34 @@ document.getElementById("log-out-btn").addEventListener("click", (event) => {
   window.location.href = "./index.html";
 });
 
+// get value function
+function getValue(id) {
+  return document.getElementById(id).value;
+}
+// get inner html function
+function getInnerText(id) {
+  return document.getElementById(id).innerText;
+}
+
+const pinNumber = 1234;
+let transactionData = [];
+
 /*add money*/
 
 document.getElementById("add-money-btn").addEventListener("click", (event) => {
   event.preventDefault();
-  const userBank = document.getElementById("bank").value;
-  const useBankAcc = document.getElementById("bank-acc").value;
-  const userAddAmount = document.getElementById("add-amount").value;
-  const userPinNumber = document.getElementById("pin-number").value;
+  const userBank = getValue("bank");
+  const useBankAcc = getValue("bank-acc");
+  const userAddAmount = getValue("add-amount");
+  const userPinNumber = getValue("pin-number");
 
-  let yourAmount = document.getElementById("your-amount").innerText;
+  let yourAmount = getInnerText("your-amount");
   yourAmount = Number(yourAmount) + Number(userAddAmount);
 
-  const pinNumber = 1234;
+  const data = {
+    name: "Add Money",
+    date: new Date().toLocaleDateString(),
+  };
 
   if (userBank === "Select bank") {
     return alert("plese select a bank");
@@ -32,7 +47,10 @@ document.getElementById("add-money-btn").addEventListener("click", (event) => {
   }
 
   if (Number(userPinNumber) === pinNumber) {
-    return (document.getElementById("your-amount").innerText = yourAmount);
+    document.getElementById("your-amount").innerText = yourAmount;
+    transactionData.length = 0;
+    transactionData.push(data);
+    return;
   } else {
     return alert("enter valid pin");
   }
@@ -44,14 +62,17 @@ document
   .getElementById("widrw-money-btn")
   .addEventListener("click", (event) => {
     event.preventDefault();
-    const userNumber = document.getElementById("agent-number").value;
-    const userWidrwAmount = document.getElementById("widrw-amount").value;
-    const userPinNumber = document.getElementById("pin-to-widrw").value;
+    const userNumber = getValue("agent-number");
+    const userWidrwAmount = getValue("widrw-amount");
+    const userPinNumber = getValue("pin-to-widrw");
 
-    let yourAmount = document.getElementById("your-amount").innerText;
+    let yourAmount = getInnerText("your-amount");
     yourAmount = Number(yourAmount) - Number(userWidrwAmount);
 
-    const pinNumber = 1234;
+    const data = {
+      name: "Cash Out",
+      date: new Date().toLocaleDateString(),
+    };
 
     if (userNumber === "") {
       return alert("plese enter agent number");
@@ -66,23 +87,71 @@ document
     }
 
     if (Number(userPinNumber) === pinNumber) {
-      return (document.getElementById("your-amount").innerText = yourAmount);
+      document.getElementById("your-amount").innerText = yourAmount;
+      transactionData.length = 0;
+      transactionData.push(data);
+      return;
     } else {
       return alert("enter valid pin");
     }
   });
 
+// trnsaction
 
+document.getElementById("transaction").addEventListener("click", () => {
+  const transactionContainer = document.getElementById("transaction-container");
+  for (const data of transactionData) {
+    const div = document.createElement("div");
+    div.innerHTML = `
+         <div
+            class=" bg-white border border-[#08080815] rounded-xl p-4 flex items-center justify-between"
+          >
+            <div class="flex items-center gap-3">
+              <div class="bg-[#f4f5f7] p-[10px] rounded-[50%]">
+                <img src="./Resources/assets/wallet1.png" alt="" />
+              </div>
+              <div class="">
+                <h2 class="text-[16px] font-semibold text-[#08080896]">
+                  ${data.name}
+                </h2>
+                <p class="text-[12px] font-normal text-[#08080896]">
+                  ${data.date}
+                </p>
+              </div>
+            </div>
+            <i class="fa-solid fa-ellipsis-vertical text-[#08080896]"></i>
+        </div>
+  
+  `;
+
+    transactionContainer.appendChild(div);
+  }
+  transactionData.length = 0;
+});
 
 /* toggole*/
 
-function btnToClick(idForClick, idForForm) {
-  document.getElementById(idForClick).addEventListener("click", () => {
+function btnToClick(btnId, formId) {
+  const button = document.getElementById(btnId);
+  const form = document.getElementById(formId);
+
+  button.addEventListener("click", () => {
     const allFeature = document.querySelectorAll(".form");
     for (const feature of allFeature) {
       feature.style.display = "none";
     }
-    document.getElementById(idForForm).style.display = "block";
+
+    const featureBtns = document.querySelectorAll(".featureBtn");
+    for (const btn of featureBtns) {
+      btn.classList.remove("border-red", "bg-gray-50");
+      btn.classList.add("border-[hsla(0,0%,3%,.1)]");
+    }
+
+    form.style.display = "block";
+
+    button.classList.add("border-[#ff77ee]", "bg-gray-50");
+
+    button.classList.remove("border-[hsla(0,0%,3%,.1)]");
   });
 }
 
@@ -91,10 +160,4 @@ btnToClick("cash-out", "cash-out-div");
 btnToClick("transfer-money", "transfer-money-div");
 btnToClick("get-bonus", "get-bonus-div");
 btnToClick("pay-bill", "pay-bill-div");
-
-
-function getValue(id){
-  document.getElementById(id).value
-}
-
-console.log(getValue("bank"))
+btnToClick("transaction", "transaction-div");

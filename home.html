@@ -51,50 +51,51 @@
           🔥 Welcome to Payooo!
         </h2>
         <p class="font-normal text-lg text-[hsla(0,0%,3%,.5)] leading-[26px]">
-          Enjoy easy and convenient financial services with us.
-        </p>
-        <p class="font-normal text-lg text-[hsla(0,0%,3%,.5)] leading-[26px]">
-          Cashout charge is low.
+          Enjoy easy and convenient financial services with us. Cashout charge
+          is low.
         </p>
       </div>
-      <div class="grid grid-cols-3 gap-4">
+      <div id="" class="grid grid-cols-3 gap-4">
         <div
           id="add-money"
-          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+          class="featureBtn flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
         >
           <img src="./Resources/assets/wallet1.png" alt="" />
           <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">Add Money</h3>
         </div>
         <div
           id="cash-out"
-          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+          class="featureBtn flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
         >
           <img src="./Resources/assets/send1.png" alt="" />
           <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">Cashout</h3>
         </div>
         <div
           id="transfer-money"
-          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+          class="featureBtn flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
         >
           <img src="./Resources/assets/money1.png" alt="" />
           <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">
             Transfer Money
           </h3>
         </div>
-        <div id="get-bonus"
-          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+        <div
+          id="get-bonus"
+          class="featureBtn flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
         >
           <img src="./Resources/assets/bonus1.png" alt="" />
           <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">Get Bonus</h3>
         </div>
-        <div id="pay-bill"
-          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+        <div
+          id="pay-bill"
+          class="featureBtn flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
         >
           <img src="./Resources/assets/purse1.png" alt="" />
           <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">Pay Bill</h3>
         </div>
-        <div id="transaction"
-          class="flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
+        <div
+          id="transaction"
+          class="featureBtn flex flex-col gap-2 py-5 items-center border border-[hsla(0,0%,3%,.1)] rounded-[10px]"
         >
           <img src="./Resources/assets/transaction1.png" alt="" />
           <h3 class="font-normal text-sm text-[hsla(0,0%,3%,.7)]">
@@ -104,9 +105,9 @@
       </div>
     </div>
     <!-- all section -->
-    <div class="all-form">
+    <div class="all-form h-[100vh]">
       <!-- add money -->
-      <div id="add-money-div" class="form  px-6 max-w-lg mx-auto py-10">
+      <div id="add-money-div" class="form px-6 max-w-lg mx-auto py-10">
         <h2 class="text-lg font-semibold text-[hsla(0,0%,3%,.9)] mb-2">
           Add Money
         </h2>
@@ -229,7 +230,10 @@
         </form>
       </div>
       <!-- transfer money -->
-      <div id="transfer-money-div" class="form px-6 max-w-lg mx-auto py-10 hidden">
+      <div
+        id="transfer-money-div"
+        class="form px-6 max-w-lg mx-auto py-10 hidden"
+      >
         <h2 class="text-lg font-semibold text-[hsla(0,0%,3%,.9)] mb-2">
           Transfer Money
         </h2>
@@ -308,8 +312,8 @@
           </button>
         </form>
       </div>
-       <!-- pay bill -->
-       <div id="pay-bill-div" class="form px-6 max-w-lg mx-auto py-10 hidden">
+      <!-- pay bill -->
+      <div id="pay-bill-div" class="form px-6 max-w-lg mx-auto py-10 hidden">
         <h2 class="text-lg font-semibold text-[hsla(0,0%,3%,.9)] mb-2">
           Pay Bill
         </h2>
@@ -373,11 +377,19 @@
             id="pay-money-btn"
             class="btn rounded-3xl text-xl font-semibold text-white w-full bg-[#0874F2] py-[22px] flex items-center"
           >
-          Pay Now
+            Pay Now
           </button>
         </form>
       </div>
-
+      <!-- taransaction -->
+      <div id="transaction-div" class="form px-6 max-w-lg mx-auto py-10 hidden">
+        <h2 class="text-lg font-semibold text-[hsla(0,0%,3%,.9)] mb-2">
+          Transactions
+        </h2>
+        <div id="transaction-container" class="flex flex-col gap-4 px-5 rounded-3xl">
+         
+        </div>
+      </div>
     </div>
     <script src="./home.js"></script>
   </body>
