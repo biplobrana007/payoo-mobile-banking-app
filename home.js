@@ -14,7 +14,36 @@ function getInnerText(id) {
 }
 
 const pinNumber = 1234;
-let transactionData = [];
+// let transactionData = [];
+
+
+// add to transaction
+function addToTransaction(data) {
+  const transactionContainer = document.getElementById("transaction-container");
+  const div = document.createElement("div");
+  div.innerHTML = `
+       <div
+          class=" bg-white border border-[#08080815] rounded-xl p-4 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-3">
+            <div class="bg-[#f4f5f7] p-[10px] rounded-[50%]">
+              <img src="./Resources/assets/wallet1.png" alt="" />
+            </div>
+            <div class="">
+              <h2 class="text-[16px] font-semibold text-[#08080896]">
+                ${data.name}
+              </h2>
+              <p class="text-[12px] font-normal text-[#08080896]">
+                ${data.date}
+              </p>
+            </div>
+          </div>
+          <i class="fa-solid fa-ellipsis-vertical text-[#08080896]"></i>
+      </div>
+
+`;
+  transactionContainer.appendChild(div);
+}
 
 /*add money*/
 
@@ -48,8 +77,9 @@ document.getElementById("add-money-btn").addEventListener("click", (event) => {
 
   if (Number(userPinNumber) === pinNumber) {
     document.getElementById("your-amount").innerText = yourAmount;
-    transactionData.length = 0;
-    transactionData.push(data);
+    addToTransaction(data);
+    // transactionData.length = 0;
+    // transactionData.push(data);
     return;
   } else {
     return alert("enter valid pin");
@@ -88,8 +118,9 @@ document
 
     if (Number(userPinNumber) === pinNumber) {
       document.getElementById("your-amount").innerText = yourAmount;
-      transactionData.length = 0;
-      transactionData.push(data);
+      addToTransaction(data);
+      // transactionData.length = 0;
+      // transactionData.push(data);
       return;
     } else {
       return alert("enter valid pin");
@@ -98,36 +129,35 @@ document
 
 // trnsaction
 
-document.getElementById("transaction").addEventListener("click", () => {
-  const transactionContainer = document.getElementById("transaction-container");
-  for (const data of transactionData) {
-    const div = document.createElement("div");
-    div.innerHTML = `
-         <div
-            class=" bg-white border border-[#08080815] rounded-xl p-4 flex items-center justify-between"
-          >
-            <div class="flex items-center gap-3">
-              <div class="bg-[#f4f5f7] p-[10px] rounded-[50%]">
-                <img src="./Resources/assets/wallet1.png" alt="" />
-              </div>
-              <div class="">
-                <h2 class="text-[16px] font-semibold text-[#08080896]">
-                  ${data.name}
-                </h2>
-                <p class="text-[12px] font-normal text-[#08080896]">
-                  ${data.date}
-                </p>
-              </div>
-            </div>
-            <i class="fa-solid fa-ellipsis-vertical text-[#08080896]"></i>
-        </div>
-  
-  `;
+// document.getElementById("transaction").addEventListener("click", () => {
+//   const transactionContainer = document.getElementById("transaction-container");
+//   for (const data of transactionData) {
+//     const div = document.createElement("div");
+//     div.innerHTML = `
+//          <div
+//             class=" bg-white border border-[#08080815] rounded-xl p-4 flex items-center justify-between"
+//           >
+//             <div class="flex items-center gap-3">
+//               <div class="bg-[#f4f5f7] p-[10px] rounded-[50%]">
+//                 <img src="./Resources/assets/wallet1.png" alt="" />
+//               </div>
+//               <div class="">
+//                 <h2 class="text-[16px] font-semibold text-[#08080896]">
+//                   ${data.name}
+//                 </h2>
+//                 <p class="text-[12px] font-normal text-[#08080896]">
+//                   ${data.date}
+//                 </p>
+//               </div>
+//             </div>
+//             <i class="fa-solid fa-ellipsis-vertical text-[#08080896]"></i>
+//         </div>
 
-    transactionContainer.appendChild(div);
-  }
-  transactionData.length = 0;
-});
+//   `;
+
+//     transactionContainer.appendChild(div);
+//   }
+// });
 
 /* toggole*/
 
